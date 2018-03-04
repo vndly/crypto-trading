@@ -1,18 +1,37 @@
 package com.mauriciotogneri.cryptos.fragments;
 
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.widget.ListView;
 
+import com.mauriciotogneri.androidutils.ToastMessage;
 import com.mauriciotogneri.cryptos.R;
+import com.mauriciotogneri.cryptos.adapters.BuyAdapter;
+import com.mauriciotogneri.cryptos.api.json.JsonBuy;
+import com.mauriciotogneri.cryptos.base.BaseFragment;
 
-public class BuyFragment extends Fragment
+public class BuyFragment extends BaseFragment
 {
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    public void fill(JsonBuy[] buys)
     {
-        return inflater.inflate(R.layout.fragment_buy, container, false);
+        BuyAdapter buyAdapter = new BuyAdapter(getContext());
+        buyAdapter.add(buys);
+
+        ListView listView = view.findViewById(R.id.list);
+        listView.setAdapter(buyAdapter);
+        listView.setOnItemClickListener((adapterView, view, position, id) ->
+        {
+            JsonBuy jsonBuy = (JsonBuy) adapterView.getItemAtPosition(position);
+            onItemSelected(jsonBuy);
+        });
+    }
+
+    private void onItemSelected(JsonBuy buy)
+    {
+        new ToastMessage(getContext()).shortMessage(buy.coin);
+    }
+
+    @Override
+    public int layout()
+    {
+        return R.layout.fragment_buy;
     }
 }

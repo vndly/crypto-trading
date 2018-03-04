@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import com.mauriciotogneri.androidutils.ToastMessage;
 import com.mauriciotogneri.cryptos.R;
 import com.mauriciotogneri.cryptos.api.Api;
 import com.mauriciotogneri.cryptos.api.json.JsonState;
@@ -23,9 +24,9 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity
 {
-    private final Fragment buyFragment = new BuyFragment();
-    private final Fragment sellFragment = new SellFragment();
-    private final Fragment summaryFragment = new SummaryFragment();
+    private final BuyFragment buyFragment = new BuyFragment();
+    private final SellFragment sellFragment = new SellFragment();
+    private final SummaryFragment summaryFragment = new SummaryFragment();
 
     public void onCreate(Bundle savedInstanceState)
     {
@@ -55,13 +56,15 @@ public class MainActivity extends AppCompatActivity
             public void onFailure(Call<JsonState> call, Throwable t)
             {
                 ringProgressDialog.dismiss();
+
+                new ToastMessage(getBaseContext()).shortMessage(R.string.error_loading);
             }
         });
     }
 
     private void fillState(JsonState state)
     {
-        System.out.println();
+        buyFragment.fill(state.buy);
     }
 
     @OnClick(R.id.tab_buy)
