@@ -10,6 +10,9 @@ import com.mauriciotogneri.cryptos.fragments.BuyFragment;
 import com.mauriciotogneri.cryptos.fragments.SellFragment;
 import com.mauriciotogneri.cryptos.fragments.SummaryFragment;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class MainActivity extends AppCompatActivity
 {
     private final Fragment buyFragment = new BuyFragment();
@@ -20,12 +23,27 @@ public class MainActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        findViewById(R.id.tab_buy).setOnClickListener(view -> displayFragment(buyFragment));
-        findViewById(R.id.tab_sell).setOnClickListener(view -> displayFragment(sellFragment));
-        findViewById(R.id.tab_summary).setOnClickListener(view -> displayFragment(summaryFragment));
+        ButterKnife.bind(this);
 
         displayFragment(buyFragment);
+    }
+
+    @OnClick(R.id.tab_buy)
+    public void onBuyTab()
+    {
+        displayFragment(buyFragment);
+    }
+
+    @OnClick(R.id.tab_sell)
+    public void onSellTab()
+    {
+        displayFragment(sellFragment);
+    }
+
+    @OnClick(R.id.tab_summary)
+    public void onSummaryTab()
+    {
+        displayFragment(summaryFragment);
     }
 
     private void displayFragment(Fragment fragment)
