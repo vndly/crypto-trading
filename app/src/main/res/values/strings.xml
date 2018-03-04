@@ -3,6 +3,8 @@
 
     <string name="app_name">Cryptos</string>
 
+    <string name="dialog.loading">Loading…</string>
+
     <string name="menu_buy">Buy</string>
     <string name="menu_sell">Sell</string>
     <string name="menu_summary">Summary</string>

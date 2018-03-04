@@ -1,5 +1,6 @@
 package com.mauriciotogneri.cryptos.activities;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
@@ -8,12 +9,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import com.mauriciotogneri.cryptos.R;
+import com.mauriciotogneri.cryptos.api.Api;
+import com.mauriciotogneri.cryptos.api.json.JsonState;
 import com.mauriciotogneri.cryptos.fragments.BuyFragment;
 import com.mauriciotogneri.cryptos.fragments.SellFragment;
 import com.mauriciotogneri.cryptos.fragments.SummaryFragment;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -28,7 +34,34 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        loadState();
         onBuyTab();
+    }
+
+    private void loadState()
+    {
+        ProgressDialog ringProgressDialog = ProgressDialog.show(this, "", getString(R.string.dialog_loading), true, false);
+
+        Api.service().state().enqueue(new Callback<JsonState>()
+        {
+            @Override
+            public void onResponse(Call<JsonState> call, Response<JsonState> response)
+            {
+                ringProgressDialog.dismiss();
+                fillState(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<JsonState> call, Throwable t)
+            {
+                ringProgressDialog.dismiss();
+            }
+        });
+    }
+
+    private void fillState(JsonState state)
+    {
+        System.out.println();
     }
 
     @OnClick(R.id.tab_buy)
