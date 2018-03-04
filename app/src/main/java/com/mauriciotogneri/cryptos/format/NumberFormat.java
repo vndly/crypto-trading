@@ -11,7 +11,7 @@ public class NumberFormat
 
     public static String percentage(Double value)
     {
-        return format(value, 2) + "%";
+        return format(value * 100, 2) + "%";
     }
 
     public static String format(Double value, int decimals)

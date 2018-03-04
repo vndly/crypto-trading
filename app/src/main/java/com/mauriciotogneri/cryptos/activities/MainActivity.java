@@ -35,8 +35,14 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        loadState();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.add(R.id.frame_container, summaryFragment);
+        transaction.add(R.id.frame_container, sellFragment);
+        transaction.add(R.id.frame_container, buyFragment);
+        transaction.commitAllowingStateLoss();
+
         onBuyTab();
+        loadState();
     }
 
     private void loadState()
@@ -91,7 +97,10 @@ public class MainActivity extends AppCompatActivity
         toolbarTitle.setText(title);
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame_container, fragment);
-        transaction.commit();
+        transaction.hide(buyFragment);
+        transaction.hide(sellFragment);
+        transaction.hide(summaryFragment);
+        transaction.show(fragment);
+        transaction.commitAllowingStateLoss();
     }
 }
