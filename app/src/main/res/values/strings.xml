@@ -7,6 +7,11 @@
 
     <string name="error.loading">Error loading</string>
 
+    <string name="buy.currentPrice">Current price:</string>
+    <string name="buy.lowestPrice">Lowest price:</string>
+    <string name="buy.changeFromLow">Change from low:</string>
+    <string name="buy.trailing">Trailing: </string>
+
     <string name="menu_buy">Buy</string>
     <string name="menu_sell">Sell</string>
     <string name="menu_summary">Summary</string>

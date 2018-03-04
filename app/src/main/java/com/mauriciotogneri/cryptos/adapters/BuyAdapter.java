@@ -8,6 +8,7 @@ import com.mauriciotogneri.cryptos.R;
 import com.mauriciotogneri.cryptos.adapters.BuyAdapter.ViewHolder;
 import com.mauriciotogneri.cryptos.api.json.JsonBuy;
 import com.mauriciotogneri.cryptos.base.BaseListAdapter;
+import com.mauriciotogneri.cryptos.format.NumberFormat;
 
 public class BuyAdapter extends BaseListAdapter<JsonBuy, ViewHolder>
 {
@@ -20,6 +21,10 @@ public class BuyAdapter extends BaseListAdapter<JsonBuy, ViewHolder>
     protected void fillView(ViewHolder holder, JsonBuy buy, int position, View rowView)
     {
         holder.coin.setText(buy.coin);
+        holder.currentPrice.setText(NumberFormat.price(buy.currentPrice));
+        holder.lowestPrice.setText(NumberFormat.price(buy.lowestPrice));
+        holder.changeFromLow.setText(NumberFormat.percentage(buy.changeFromLow));
+        holder.trailing.setText(NumberFormat.percentage(buy.trailing));
     }
 
     @Override
@@ -30,11 +35,19 @@ public class BuyAdapter extends BaseListAdapter<JsonBuy, ViewHolder>
 
     public static class ViewHolder
     {
-        public TextView coin;
+        public final TextView coin;
+        public final TextView currentPrice;
+        public final TextView lowestPrice;
+        public final TextView changeFromLow;
+        public final TextView trailing;
 
         protected ViewHolder(View view)
         {
             coin = view.findViewById(R.id.title);
+            currentPrice = view.findViewById(R.id.currentPrice);
+            lowestPrice = view.findViewById(R.id.lowestPrice);
+            changeFromLow = view.findViewById(R.id.changeFromLow);
+            trailing = view.findViewById(R.id.trailing);
         }
     }
 }
