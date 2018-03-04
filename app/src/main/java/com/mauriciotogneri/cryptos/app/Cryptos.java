@@ -1,4 +1,4 @@
-package com.mauriciotogneri.cryptos;
+package com.mauriciotogneri.cryptos.app;
 
 import android.app.Application;
 

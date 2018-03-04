@@ -1,9 +1,11 @@
-package com.mauriciotogneri.cryptos;
+package com.mauriciotogneri.cryptos.push;
 
 import android.content.Intent;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+import com.mauriciotogneri.cryptos.activities.MainActivity;
+import com.mauriciotogneri.cryptos.R;
 
 public class PushNotificationService extends FirebaseMessagingService
 {

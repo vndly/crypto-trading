@@ -1,4 +1,4 @@
-package com.mauriciotogneri.cryptos;
+package com.mauriciotogneri.cryptos.push;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -11,6 +11,9 @@ import android.os.Build.VERSION_CODES;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.content.ContextCompat;
+
+import com.mauriciotogneri.cryptos.BuildConfig;
+import com.mauriciotogneri.cryptos.R;
 
 public class NotificationDisplayer
 {

@@ -5,23 +5,37 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!-- <include
-         layout="@layout/toolbar"/>-->
+    <include
+        layout="@layout/toolbar"/>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/pager"
+    <FrameLayout
+        android:id="@+id/frame.layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:animateLayoutChanges="true"/>
 
-        <android.support.v4.view.PagerTitleStrip
-            android:id="@+id/pager_title_strip"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:textColor="@android:color/white"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
 
-    </android.support.v4.view.ViewPager>
+        <ImageView
+            android:id="@+id/tab_buy"
+            style="@style/tab_button"
+            android:src="@drawable/ic_buy"/>
+
+        <ImageView
+            android:id="@+id/tab_sell"
+            style="@style/tab_button"
+            android:src="@drawable/ic_sell"/>
+
+        <ImageView
+            android:id="@+id/tab_summary"
+            style="@style/tab_button"
+            android:src="@drawable/ic_summary"/>
+
+    </LinearLayout>
 
 </LinearLayout>
