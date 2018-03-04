@@ -1,9 +1,11 @@
 package com.mauriciotogneri.cryptos.activities;
 
 import android.os.Bundle;
+import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.TextView;
 
 import com.mauriciotogneri.cryptos.R;
 import com.mauriciotogneri.cryptos.fragments.BuyFragment;
@@ -22,34 +24,38 @@ public class MainActivity extends AppCompatActivity
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        displayFragment(buyFragment);
+        onBuyTab();
     }
 
     @OnClick(R.id.tab_buy)
     public void onBuyTab()
     {
-        displayFragment(buyFragment);
+        displayFragment(R.string.menu_buy, buyFragment);
     }
 
     @OnClick(R.id.tab_sell)
     public void onSellTab()
     {
-        displayFragment(sellFragment);
+        displayFragment(R.string.menu_sell, sellFragment);
     }
 
     @OnClick(R.id.tab_summary)
     public void onSummaryTab()
     {
-        displayFragment(summaryFragment);
+        displayFragment(R.string.menu_summary, summaryFragment);
     }
 
-    private void displayFragment(Fragment fragment)
+    private void displayFragment(@StringRes int title, Fragment fragment)
     {
+        TextView toolbarTitle = findViewById(R.id.toolbar_title);
+        toolbarTitle.setText(title);
+
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame_layout, fragment);
+        transaction.replace(R.id.frame_container, fragment);
         transaction.commit();
     }
 }
