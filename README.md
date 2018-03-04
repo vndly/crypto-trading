@@ -1,2 +1,1 @@
-# crypto-trading
-Crypto Trading
+# Crypto Trading

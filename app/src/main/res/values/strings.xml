@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Cryptos</string>
+
+    <string name="menu_buy">Buy</string>
+    <string name="menu_sell">Sell</string>
+    <string name="menu_summary">Summary</string>
+
+</resources>

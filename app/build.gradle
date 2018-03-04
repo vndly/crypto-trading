@@ -1,0 +1,73 @@
+apply plugin: 'com.android.application'
+
+android
+{
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
+
+    dexOptions
+    {
+        javaMaxHeapSize '2g'
+    }
+
+    defaultConfig
+    {
+        applicationId 'com.mauriciotogneri.cryptos'
+        minSdkVersion 23
+        targetSdkVersion 27
+        versionCode 1
+        versionName '1.0.0'
+    }
+
+    buildTypes
+    {
+        release
+        {
+            minifyEnabled false
+        }
+    }
+
+    compileOptions
+    {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+ext
+{
+    support = '27.1.0'
+    playservices = '11.8.0'
+    retrofit = '2.3.0'
+    okhttp = '3.9.0'
+}
+
+dependencies
+{
+    // support
+    implementation "com.android.support:appcompat-v7:$support"
+    implementation "com.android.support:support-v13:$support"
+    implementation "com.android.support:cardview-v7:$support"
+    implementation "com.android.support:design:$support"
+
+    // firebase
+    implementation "com.google.firebase:firebase-core:$playservices"
+    implementation "com.google.firebase:firebase-messaging:$playservices"
+    implementation "com.google.firebase:firebase-crash:$playservices"
+
+    // retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit"
+
+    // okhttp
+    implementation "com.squareup.okhttp3:okhttp:$okhttp"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp"
+
+    // joda time
+    implementation 'joda-time:joda-time:2.9.9'
+
+    // gson
+    implementation 'com.google.code.gson:gson:2.8.2'
+}
+
+apply plugin: 'com.google.gms.google-services'

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "293341560629",
+    "firebase_url": "https://cryptosbase.firebaseio.com",
+    "project_id": "cryptosbase",
+    "storage_bucket": "cryptosbase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:293341560629:android:0c70dbf8d6923d26",
+        "android_client_info": {
+          "package_name": "com.mauriciotogneri.cryptos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "293341560629-totql7bet1mvs8ms869qf0mmofehmpba.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mauriciotogneri.cryptos",
+            "certificate_hash": "808dcd3d2690ff6f4d7bf006a9693003db48bc66"
+          }
+        },
+        {
+          "client_id": "293341560629-q96s65938nf496fa773bou4pqifrnmpg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0AOl-8t0QBjCV9IdJ2jCZ0-vBVfSVSx0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "293341560629-q96s65938nf496fa773bou4pqifrnmpg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
