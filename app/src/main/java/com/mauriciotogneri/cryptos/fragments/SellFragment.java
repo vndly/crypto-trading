@@ -1,5 +1,6 @@
 package com.mauriciotogneri.cryptos.fragments;
 
+import android.view.View;
 import android.widget.ListView;
 
 import com.mauriciotogneri.androidutils.ToastMessage;
@@ -12,16 +13,25 @@ public class SellFragment extends BaseFragment
 {
     public void fill(JsonSell[] sells)
     {
-        SellAdapter adapter = new SellAdapter(getContext());
-        adapter.add(sells);
-
-        ListView listView = view.findViewById(R.id.list);
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener((adapterView, view, position, id) ->
+        if (sells.length > 0)
         {
-            JsonSell item = (JsonSell) adapterView.getItemAtPosition(position);
-            onItemSelected(item);
-        });
+            SellAdapter adapter = new SellAdapter(getContext());
+            adapter.add(sells);
+
+            ListView listView = view.findViewById(R.id.list);
+            listView.setVisibility(View.VISIBLE);
+            listView.setAdapter(adapter);
+            listView.setOnItemClickListener((adapterView, view, position, id) ->
+            {
+                JsonSell item = (JsonSell) adapterView.getItemAtPosition(position);
+                onItemSelected(item);
+            });
+        }
+        else
+        {
+            View emptyView = view.findViewById(R.id.empty);
+            emptyView.setVisibility(View.VISIBLE);
+        }
     }
 
     private void onItemSelected(JsonSell buy)

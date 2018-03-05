@@ -7,6 +7,8 @@
 
     <string name="error.loading">Error loading</string>
 
+    <string name="list.empty">Empty</string>
+
     <string name="buy.currentPrice">Current price:</string>
     <string name="buy.lowestPrice">Lowest price:</string>
     <string name="buy.changeFromLow">Change from low:</string>

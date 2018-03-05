@@ -1,6 +1,7 @@
 package com.mauriciotogneri.cryptos.fragments;
 
 import android.content.Intent;
+import android.view.View;
 import android.widget.ListView;
 
 import com.mauriciotogneri.cryptos.R;
@@ -13,16 +14,25 @@ public class BuyFragment extends BaseFragment
 {
     public void fill(JsonBuy[] buys)
     {
-        BuyAdapter adapter = new BuyAdapter(getContext());
-        adapter.add(buys);
-
-        ListView listView = view.findViewById(R.id.list);
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener((adapterView, view, position, id) ->
+        if (buys.length > 0)
         {
-            JsonBuy json = (JsonBuy) adapterView.getItemAtPosition(position);
-            onItemSelected(json);
-        });
+            BuyAdapter adapter = new BuyAdapter(getContext());
+            adapter.add(buys);
+
+            ListView listView = view.findViewById(R.id.list);
+            listView.setVisibility(View.VISIBLE);
+            listView.setAdapter(adapter);
+            listView.setOnItemClickListener((adapterView, view, position, id) ->
+            {
+                JsonBuy json = (JsonBuy) adapterView.getItemAtPosition(position);
+                onItemSelected(json);
+            });
+        }
+        else
+        {
+            View emptyView = view.findViewById(R.id.empty);
+            emptyView.setVisibility(View.VISIBLE);
+        }
     }
 
     private void onItemSelected(JsonBuy buy)
