@@ -61,7 +61,7 @@ public class SellAdapter extends BaseListAdapter<JsonSell, ViewHolder>
 
         protected ViewHolder(View view)
         {
-            coin = view.findViewById(R.id.title);
+            coin = view.findViewById(R.id.coin);
             unitPrice = view.findViewById(R.id.unitPrice);
             amount = view.findViewById(R.id.amount);
             boughtPrice = view.findViewById(R.id.boughtPrice);
