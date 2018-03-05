@@ -1,6 +1,8 @@
 package com.mauriciotogneri.cryptos.activities;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
@@ -85,6 +87,13 @@ public class MainActivity extends AppCompatActivity
     public void onSellTab()
     {
         displayFragment(R.string.menu_sell, sellFragment);
+    }
+
+    @OnClick(R.id.toolbar_excel)
+    public void onExcel()
+    {
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://docs.google.com/spreadsheets/d/1JTUG8e2_YU-CP2Xe52VoHJbZolBxfbIni-n2DuZWFJM"));
+        startActivity(intent);
     }
 
     @OnClick(R.id.tab_summary)
