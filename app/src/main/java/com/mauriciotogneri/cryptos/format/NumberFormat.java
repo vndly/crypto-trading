@@ -9,6 +9,11 @@ public class NumberFormat
         return format(value, 8);
     }
 
+    public static String amount(Double value)
+    {
+        return format(value, 2);
+    }
+
     public static String percentage(Double value)
     {
         return format(value * 100, 2) + "%";

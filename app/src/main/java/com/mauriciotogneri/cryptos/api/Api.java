@@ -12,7 +12,7 @@ public class Api
     public static StateService service()
     {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://script.google.com/macros/s/AKfycbzsA2ZLlSfObOCyTTv_arpjhYGZlC27IQdSkmLwzZ2tevquAaY/")
+                .baseUrl("https://script.google.com/macros/s/AKfycbxmL2WCCqb3Ky0spDk9nI76a9QtKQagjygJyJByHp4/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

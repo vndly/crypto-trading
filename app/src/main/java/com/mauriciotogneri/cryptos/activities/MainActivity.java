@@ -55,7 +55,14 @@ public class MainActivity extends AppCompatActivity
             public void onResponse(Call<JsonState> call, Response<JsonState> response)
             {
                 ringProgressDialog.dismiss();
-                fillState(response.body());
+
+                JsonState state = response.body();
+
+                if (state != null)
+                {
+                    buyFragment.fill(state.buy);
+                    sellFragment.fill(state.sell);
+                }
             }
 
             @Override
@@ -66,11 +73,6 @@ public class MainActivity extends AppCompatActivity
                 new ToastMessage(getBaseContext()).shortMessage(R.string.error_loading);
             }
         });
-    }
-
-    private void fillState(JsonState state)
-    {
-        buyFragment.fill(state.buy);
     }
 
     @OnClick(R.id.tab_buy)

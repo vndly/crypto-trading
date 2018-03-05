@@ -12,15 +12,15 @@ public class BuyFragment extends BaseFragment
 {
     public void fill(JsonBuy[] buys)
     {
-        BuyAdapter buyAdapter = new BuyAdapter(getContext());
-        buyAdapter.add(buys);
+        BuyAdapter adapter = new BuyAdapter(getContext());
+        adapter.add(buys);
 
         ListView listView = view.findViewById(R.id.list);
-        listView.setAdapter(buyAdapter);
+        listView.setAdapter(adapter);
         listView.setOnItemClickListener((adapterView, view, position, id) ->
         {
-            JsonBuy jsonBuy = (JsonBuy) adapterView.getItemAtPosition(position);
-            onItemSelected(jsonBuy);
+            JsonBuy json = (JsonBuy) adapterView.getItemAtPosition(position);
+            onItemSelected(json);
         });
     }
 

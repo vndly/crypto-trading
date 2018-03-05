@@ -10,7 +10,21 @@
     <string name="buy.currentPrice">Current price:</string>
     <string name="buy.lowestPrice">Lowest price:</string>
     <string name="buy.changeFromLow">Change from low:</string>
-    <string name="buy.trailing">Trailing: </string>
+    <string name="buy.trailing">Trailing:</string>
+
+    <string name="sell.unitPrice">Unit price:</string>
+    <string name="sell.amount">Amount:</string>
+    <string name="sell.boughtPrice">Bought price:</string>
+    <string name="sell.currentPrice">Current price:</string>
+    <string name="sell.highestPrice">Highest price:</string>
+    <string name="sell.priceChange">Price change:</string>
+    <string name="sell.changeFromHigh">Change from high:</string>
+    <string name="sell.currentValue">Current value:</string>
+    <string name="sell.profit">Profit:</string>
+    <string name="sell.benefit">Benefit:</string>
+    <string name="sell.stopLoss">Stop loss:</string>
+    <string name="sell.trailing">Trailing:</string>
+    <string name="sell.startDate">Start date:</string>
 
     <string name="menu_buy">Buy</string>
     <string name="menu_sell">Sell</string>

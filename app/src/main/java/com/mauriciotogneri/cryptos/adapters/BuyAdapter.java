@@ -43,7 +43,7 @@ public class BuyAdapter extends BaseListAdapter<JsonBuy, ViewHolder>
 
         protected ViewHolder(View view)
         {
-            coin = view.findViewById(R.id.title);
+            coin = view.findViewById(R.id.coin);
             currentPrice = view.findViewById(R.id.currentPrice);
             lowestPrice = view.findViewById(R.id.lowestPrice);
             changeFromLow = view.findViewById(R.id.changeFromLow);
