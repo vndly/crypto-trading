@@ -9,9 +9,19 @@ import com.mauriciotogneri.cryptos.adapters.SellAdapter.ViewHolder;
 import com.mauriciotogneri.cryptos.api.json.JsonSell;
 import com.mauriciotogneri.cryptos.base.BaseListAdapter;
 import com.mauriciotogneri.cryptos.format.NumberFormat;
+import com.mauriciotogneri.javautils.FormattedDateTime;
+
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
+
+import java.util.Locale;
+import java.util.TimeZone;
 
 public class SellAdapter extends BaseListAdapter<JsonSell, ViewHolder>
 {
+    private static final FormattedDateTime timestampFull = new FormattedDateTime("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+    private static final FormattedDateTime dateMonthYear = new FormattedDateTime("dd.MM.yyyy");
+
     public SellAdapter(Context context)
     {
         super(context, R.layout.card_sell);
@@ -33,7 +43,10 @@ public class SellAdapter extends BaseListAdapter<JsonSell, ViewHolder>
         holder.benefit.setText(NumberFormat.amount(sell.benefit));
         holder.stopLoss.setText(NumberFormat.percentage(sell.stopLoss));
         holder.trailing.setText(NumberFormat.percentage(sell.trailing));
-        holder.startDate.setText(sell.startDate);
+
+        DateTime dateTime = timestampFull.date(sell.startDate);
+        String startDate = dateMonthYear.date(dateTime, DateTimeZone.forTimeZone(TimeZone.getDefault()), Locale.ENGLISH, "");
+        holder.startDate.setText(String.format("%s (%s days)", startDate, sell.days));
 
         colorize(holder.currentPrice, sell.currentPrice >= sell.unitPrice);
         colorize(holder.priceChange, sell.priceChange >= 0);

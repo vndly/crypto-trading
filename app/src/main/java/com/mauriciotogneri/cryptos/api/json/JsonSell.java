@@ -29,4 +29,6 @@ public class JsonSell
     public Double trailing;
 
     public String startDate;
+
+    public Integer days;
 }
