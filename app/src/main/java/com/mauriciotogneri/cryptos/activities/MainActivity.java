@@ -1,19 +1,17 @@
 package com.mauriciotogneri.cryptos.activities;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import com.mauriciotogneri.androidutils.ToastMessage;
 import com.mauriciotogneri.cryptos.R;
 import com.mauriciotogneri.cryptos.api.Api;
 import com.mauriciotogneri.cryptos.api.json.JsonState;
+import com.mauriciotogneri.cryptos.base.BaseActivity;
 import com.mauriciotogneri.cryptos.fragments.BuyFragment;
 import com.mauriciotogneri.cryptos.fragments.SellFragment;
 import com.mauriciotogneri.cryptos.fragments.SummaryFragment;
@@ -24,7 +22,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends BaseActivity
 {
     private final BuyFragment buyFragment = new BuyFragment();
     private final SellFragment sellFragment = new SellFragment();
@@ -87,13 +85,6 @@ public class MainActivity extends AppCompatActivity
     public void onSellTab()
     {
         displayFragment(R.string.menu_sell, sellFragment);
-    }
-
-    @OnClick(R.id.toolbar_excel)
-    public void onExcel()
-    {
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://docs.google.com/spreadsheets/d/1JTUG8e2_YU-CP2Xe52VoHJbZolBxfbIni-n2DuZWFJM"));
-        startActivity(intent);
     }
 
     @OnClick(R.id.tab_summary)

@@ -3,18 +3,21 @@ package com.mauriciotogneri.cryptos.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.mauriciotogneri.androidutils.Clipboard;
+import com.mauriciotogneri.androidutils.ToastMessage;
 import com.mauriciotogneri.cryptos.R;
+import com.mauriciotogneri.cryptos.base.BaseActivity;
 import com.mauriciotogneri.cryptos.format.NumberFormat;
 
 import butterknife.ButterKnife;
 
-public class CalculateAmount extends AppCompatActivity
+public class CalculateAmount extends BaseActivity
 {
     private static final String PARAMETER_COIN = "coin";
     private static final String PARAMETER_UNIT_PRICE = "unit.price";
@@ -62,15 +65,33 @@ public class CalculateAmount extends AppCompatActivity
             @Override
             public void afterTextChanged(Editable s)
             {
-                calculateAmount(unitPrice, Double.parseDouble(investmentView.getText().toString()));
+                String text = investmentView.getText().toString();
+
+                if (!TextUtils.isEmpty(text))
+                {
+                    calculateAmount(unitPrice, Double.parseDouble(text));
+                }
+                else
+                {
+                    calculateAmount(unitPrice, 0);
+                }
             }
         });
         investmentView.setText(NumberFormat.price(DEFAULT_INVESTMENT));
+
+        TextView amountView = findViewById(R.id.amount);
+        amountView.setOnClickListener(view ->
+        {
+            Clipboard clipboard = new Clipboard(getBaseContext());
+            clipboard.copy(amountView.getText().toString());
+
+            new ToastMessage(getBaseContext()).shortMessage(R.string.calculate_copied);
+        });
     }
 
     private void calculateAmount(double unitPrice, double investment)
     {
         TextView amountView = findViewById(R.id.amount);
-        amountView.setText(NumberFormat.amount(investment / unitPrice));
+        amountView.setText(String.valueOf((int)(investment / unitPrice)));
     }
 }

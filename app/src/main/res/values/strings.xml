@@ -29,6 +29,7 @@
     <string name="calculate.unitPrice">Unit price</string>
     <string name="calculate.investment">Investment</string>
     <string name="calculate.amount">Amount</string>
+    <string name="calculate.copied">Copied to clipboard</string>
 
     <string name="menu_buy">Buy</string>
     <string name="menu_sell">Sell</string>
