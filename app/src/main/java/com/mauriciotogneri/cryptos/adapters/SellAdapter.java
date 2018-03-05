@@ -34,6 +34,25 @@ public class SellAdapter extends BaseListAdapter<JsonSell, ViewHolder>
         holder.stopLoss.setText(NumberFormat.percentage(sell.stopLoss));
         holder.trailing.setText(NumberFormat.percentage(sell.trailing));
         holder.startDate.setText(sell.startDate);
+
+        colorize(holder.currentPrice, sell.currentPrice >= sell.unitPrice);
+        colorize(holder.priceChange, sell.priceChange >= 0);
+        colorize(holder.changeFromHigh, sell.changeFromHigh >= 0);
+        colorize(holder.currentValue, sell.currentValue >= sell.boughtPrice);
+        colorize(holder.profit, sell.profit >= 0);
+        colorize(holder.benefit, sell.benefit >= 0);
+    }
+
+    private void colorize(TextView view, boolean condition)
+    {
+        if (condition)
+        {
+            view.setTextColor(color(R.color.positive));
+        }
+        else
+        {
+            view.setTextColor(color(R.color.negative));
+        }
     }
 
     @Override

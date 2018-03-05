@@ -1,7 +1,9 @@
 package com.mauriciotogneri.cryptos.base;
 
 import android.content.Context;
+import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,5 +62,10 @@ public abstract class BaseListAdapter<T, V> extends ArrayAdapter<T>
         rowView.setTag(viewHolder);
 
         return rowView;
+    }
+
+    protected int color(@ColorRes int id)
+    {
+        return ContextCompat.getColor(getContext(), id);
     }
 }
