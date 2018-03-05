@@ -26,6 +26,10 @@
 
         </activity>
 
+        <activity
+            android:name=".activities.CalculateAmount"
+            android:screenOrientation="portrait"/>
+
         <service
             android:name=".push.PushNotificationService"
             android:exported="false">

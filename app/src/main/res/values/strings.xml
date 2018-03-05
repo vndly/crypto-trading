@@ -26,6 +26,10 @@
     <string name="sell.trailing">Trailing:</string>
     <string name="sell.startDate">Start date:</string>
 
+    <string name="calculate.unitPrice">Unit price</string>
+    <string name="calculate.investment">Investment</string>
+    <string name="calculate.amount">Amount</string>
+
     <string name="menu_buy">Buy</string>
     <string name="menu_sell">Sell</string>
     <string name="menu_summary">Summary</string>

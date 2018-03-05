@@ -5,7 +5,8 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#3949AB</color>
 
-    <color name="text">#555555</color>
+    <color name="text.dark">#555555</color>
+    <color name="text.light">#777777</color>
 
     <color name="positive">#17A956</color>
     <color name="negative">#E41916</color>

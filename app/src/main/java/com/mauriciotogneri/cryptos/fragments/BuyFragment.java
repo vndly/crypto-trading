@@ -1,9 +1,10 @@
 package com.mauriciotogneri.cryptos.fragments;
 
+import android.content.Intent;
 import android.widget.ListView;
 
-import com.mauriciotogneri.androidutils.ToastMessage;
 import com.mauriciotogneri.cryptos.R;
+import com.mauriciotogneri.cryptos.activities.CalculateAmount;
 import com.mauriciotogneri.cryptos.adapters.BuyAdapter;
 import com.mauriciotogneri.cryptos.api.json.JsonBuy;
 import com.mauriciotogneri.cryptos.base.BaseFragment;
@@ -26,7 +27,8 @@ public class BuyFragment extends BaseFragment
 
     private void onItemSelected(JsonBuy buy)
     {
-        new ToastMessage(getContext()).shortMessage(buy.coin);
+        Intent intent = CalculateAmount.intent(getContext(), buy.coin, buy.currentPrice);
+        startActivity(intent);
     }
 
     @Override
