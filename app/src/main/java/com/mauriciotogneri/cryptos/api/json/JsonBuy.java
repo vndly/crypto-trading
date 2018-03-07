@@ -8,6 +8,10 @@ public class JsonBuy
 
     public Double lowestPrice;
 
+    public Double highestPrice;
+
+    public Double changeFromHigh;
+
     public Double changeFromLow;
 
     public Double trailing;

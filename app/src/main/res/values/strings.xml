@@ -10,7 +10,9 @@
     <string name="list.empty">Empty</string>
 
     <string name="buy.currentPrice">Current price:</string>
+    <string name="buy.highestPrice">Highest price:</string>
     <string name="buy.lowestPrice">Lowest price:</string>
+    <string name="buy.changeFromHigh">Change from high:</string>
     <string name="buy.changeFromLow">Change from low:</string>
     <string name="buy.trailing">Trailing:</string>
 

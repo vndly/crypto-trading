@@ -66,6 +66,28 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:text="@string/buy.highestPrice"
+                        android:textColor="@color/text.dark"/>
+
+                    <TextView
+                        android:id="@+id/highestPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:textColor="@color/text.dark"
+                        tools:text="0.12345678"/>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:text="@string/buy.lowestPrice"
                         android:textColor="@color/text.dark"/>
 
@@ -76,6 +98,28 @@
                         android:gravity="end"
                         android:textColor="@color/text.dark"
                         tools:text="0.12345678"/>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/buy.changeFromHigh"
+                        android:textColor="@color/text.dark"/>
+
+                    <TextView
+                        android:id="@+id/changeFromHigh"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:textColor="@color/text.dark"
+                        tools:text="1.23%"/>
 
                 </TableRow>
 
