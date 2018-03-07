@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public abstract class BaseListAdapter<T, V> extends ArrayAdapter<T>
 {
@@ -25,6 +27,11 @@ public abstract class BaseListAdapter<T, V> extends ArrayAdapter<T>
     }
 
     public void add(T[] list)
+    {
+        add(Arrays.asList(list));
+    }
+
+    public void add(List<T> list)
     {
         addAll(list);
         notifyDataSetChanged();

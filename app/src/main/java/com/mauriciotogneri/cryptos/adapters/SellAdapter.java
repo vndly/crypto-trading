@@ -39,8 +39,8 @@ public class SellAdapter extends BaseListAdapter<JsonSell, ViewHolder>
         holder.priceChange.setText(NumberFormat.percentage(sell.priceChange));
         holder.changeFromHigh.setText(NumberFormat.percentage(sell.changeFromHigh));
         holder.currentValue.setText(NumberFormat.price(sell.currentValue));
-        holder.profit.setText(NumberFormat.percentage(sell.profit));
-        holder.benefit.setText(NumberFormat.amount(sell.benefit));
+        holder.profit.setText(NumberFormat.price(sell.profit));
+        holder.benefit.setText(String.format("$%s", NumberFormat.amount(sell.benefit)));
         holder.stopLoss.setText(NumberFormat.percentage(sell.stopLoss));
         holder.trailing.setText(NumberFormat.percentage(sell.trailing));
 

@@ -10,14 +10,22 @@ import com.mauriciotogneri.cryptos.adapters.BuyAdapter;
 import com.mauriciotogneri.cryptos.api.json.JsonBuy;
 import com.mauriciotogneri.cryptos.base.BaseFragment;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 public class BuyFragment extends BaseFragment
 {
     public void fill(JsonBuy[] buys)
     {
         if (buys.length > 0)
         {
+            List<JsonBuy> list = Arrays.asList(buys);
+
+            Collections.sort(list, (e1, e2) -> e1.coin.compareTo(e2.coin));
+
             BuyAdapter adapter = new BuyAdapter(getContext());
-            adapter.add(buys);
+            adapter.add(list);
 
             ListView listView = view.findViewById(R.id.list);
             listView.setVisibility(View.VISIBLE);
