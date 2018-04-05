@@ -18,7 +18,7 @@ public class Api
     {
         Retrofit retrofit = new Retrofit.Builder()
                 .client(client())
-                .baseUrl("https://script.google.com/macros/s/AKfycbzsA2ZLlSfObOCyTTv_arpjhYGZlC27IQdSkmLwzZ2tevquAaY/")
+                .baseUrl("https://script.google.com/macros/s/AKfycbxHfbJvV7hR22Nzwco3yYgZ2KOkrD689Y9OS3BjevAXw2UOOHKs/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

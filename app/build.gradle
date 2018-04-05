@@ -19,11 +19,11 @@ android
         versionName '1.0.0'
     }
 
-    buildTypes
+    signingConfigs
     {
-        release
+        debug
         {
-            minifyEnabled false
+            storeFile file('debug.keystore')
         }
     }
 
@@ -44,9 +44,9 @@ android
 ext
 {
     support = '27.1.0'
-    playservices = '11.8.0'
-    retrofit = '2.3.0'
-    okhttp = '3.9.0'
+    playservices = '12.0.1'
+    retrofit = '2.4.0'
+    okhttp = '3.10.0'
     butterknife = '8.8.1'
 }
 
